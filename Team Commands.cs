@@ -13,8 +13,8 @@ namespace TeamCommands {
         public TeamCommands(Main game) : base(game) {
         }
         public override void Initialize() {
-            Commands.ChatCommands.Add(new Command("system.admin", TeamDo, "team") {
-                HelpText = "Runs a command to an entire team. Format: /team [command]. Any user-specific TShock command will work."
+            Commands.ChatCommands.Add(new Command("teamcommands.use", TeamDo, "teamcmd") {
+                HelpText = "Runs a command to an entire team. Format: /teamcmd [command]. Any user-specific TShock command will work."
             });
         }
         public override Version Version {
@@ -66,7 +66,7 @@ namespace TeamCommands {
         }
 
         void TeamDo(CommandArgs e) {
-            if (e.Parameters.Count == 0) e.Player.SendErrorMessage("Invalid syntax! Proper syntax: /team <command>. Type /team help for all commands.");
+            if (e.Parameters.Count == 0) e.Player.SendErrorMessage("Invalid syntax! Proper syntax: /teamcmd <command>. Type /team help for all commands.");
             else switch (e.Parameters[0]) {
 
                 case "kick":
